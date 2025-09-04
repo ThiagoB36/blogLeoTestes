@@ -39,7 +39,7 @@ header {
   cursor: pointer;
 }
 
-.menu select option {
+.menu select div {
   background: #2a2a3c;
   color: #fff;
 }
@@ -57,6 +57,7 @@ header {
 
 .login-btn:hover {
   background: #3650c5;
+  color: red;
 }
 
 /* ===== CONTEÚDO ===== */

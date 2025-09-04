@@ -2,6 +2,7 @@ import "../../App.css";
 import "./home.css";
 import { database } from "../../database/database";
 import { useNavigate } from "react-router";
+
 export default function Home() {
   const navigate = useNavigate();
   return (
@@ -13,12 +14,9 @@ export default function Home() {
 
           <div className="menu">
             <select>
+              <option>Categorias</option>
               {database.categories.map((item, idx) => {
-                // if (item == "Categorias") {
-                // return <option disabled>{item}</option>;
-                // } else {
                 return <option key={idx}>{item}</option>;
-                // }
               })}
             </select>
           </div>
@@ -30,7 +28,7 @@ export default function Home() {
       {/* CONTEÚDO */}
       <main>
         {database.posts.map((item, idx) => {
-          const txt = item.text.slice(0, 60) + " ...";
+          const txt = item.text.slice(0, 60) + " ..."; // tratamento da variavel
           const id = item.id;
           const handle = () => {
             console.log("clicado ", { idx });
