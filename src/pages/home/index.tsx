@@ -7,29 +7,14 @@ export default function Home() {
   const navigate = useNavigate();
   return (
     <>
-      {/* HEADER */}
-      <header>
-        <div style={styles.headerStl}>
-          <div className="logo">MeuBlog</div>
-
-          <div className="menu">
-            <select>
-              <option>Categorias</option>
-              {database.categories.map((item, idx) => {
-                return <option key={idx}>{item}</option>;
-              })}
-            </select>
-          </div>
-        </div>
-
-        <button className="login-btn">Login</button>
-      </header>
-
       {/* CONTEÚDO */}
       <main>
         {database.posts.map((item, idx) => {
-          const txt = item.text.slice(0, 60) + " ..."; // tratamento da variavel
           const id = item.id;
+
+          const textEdited = item.text.slice(0, 60) + "...";
+          console.log({ textEdited });
+
           const handle = () => {
             console.log("clicado ", { idx });
             navigate(`posts/${id}`);
@@ -39,7 +24,7 @@ export default function Home() {
               <img src={item.imageUrl} className="imgStl" />
               <div className="card-content">
                 <div className="card-title">{item.title}</div>
-                <div className="card-desc">{txt}</div>
+                <div className="card-desc">{textEdited}</div>
               </div>
             </button>
           );
